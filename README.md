@@ -61,29 +61,17 @@ Entity-Relationship Diagram
 
 the authors table will help us gain all the information of the author and this will help us to track all the transaction and the publication of the books and to know where it come from to which author and other necessary things needed to be known.
 
+the primary key= author_id
+the foreign key= no foreign key 
+ 
 
-primary key = author_id
-
-there is no foreign key
-
-CREATE TABLE authors (
-    author_id INT PRIMARY KEY,
-    author_name VARCHAR(100) NOT NULL,
-    debut_year INT,
-    country VARCHAR(50),
-    region VARCHAR(50)  
-);
+<img width="370" height="109" alt="author table schema" src="https://github.com/user-attachments/assets/20c45204-30e2-4240-8304-1748af5eb17b" />
 
 
- this is the inserting part on the authors table that will give us all the information of author and the location and all things related to it.
 
+this is the inserting part on the authors table that will give us all the information of author and the location and all things related to it.
 
-INSERT INTO authors VALUES
-(1, 'Kevin', 2003, 'Nigeria', 'West Africa'),
-(2, 'Belise', 2016, 'California', 'North America'),
-(3, 'Fred', 2024, 'Sudan', 'East Africa'),
-(4, 'Christelle', 2013, 'South Africa', 'Southern Africa'),
-(5, 'keza', 2018, 'Rwanda', 'East Africa');
+<img width="374" height="171" alt="author table data insert" src="https://github.com/user-attachments/assets/e357cf02-fc65-46ea-b6b5-b5e451d8ee60" />
 
 
 books table
@@ -91,16 +79,8 @@ books table
 
 this is the schema of the books table which will help us to know  the more details the book it's name and the authors and the other things related to it which will give us the opportunity to track every details needed for the analysis.
 
+<img width="355" height="102" alt="books table schema" src="https://github.com/user-attachments/assets/9b86d9d7-c08e-4b42-97ad-61219df766e0" />
 
-
-CREATE TABLE books (
-    book_id INT PRIMARY KEY,
-    book_title VARCHAR(200) NOT NULL,
-    author_id INT NOT NULL REFERENCES authors(author_id),  
-    category VARCHAR(50),        
-    publication_date DATE,
-    price DECIMAL(8,2) NOT NULL
-);
 
  primary key: book_id
 foreign key: author_id.
@@ -108,13 +88,8 @@ foreign key: author_id.
 
 this is the inserting part that contain the more detail we need on book.
 
+<img width="377" height="182" alt="book table data insert" src="https://github.com/user-attachments/assets/9443db1a-4cbb-4d43-bde5-90af65735508" />
 
-INSERT INTO books VALUES
-(101, 'her mindset', 1, 'Fiction', '2022-03-15', 24.99),
-(102, 'the heritage', 2, 'Historical Fiction', '2022-06-20', 22.50),
-(103, 'The home', 3, 'Poetry', '2023-01-10', 18.75),
-(104, 'the broken vase', 4, 'Fiction', '2023-04-05', 21.00),
-(105, 'the trust', 5, 'Fiction', '2023-07-12', 23.50);
 
 
 
@@ -124,26 +99,16 @@ INSERT INTO books VALUES
 we have no foreign key just because it is a strong independent entity.
 
 this below is the schema of the  customer table and this table of the customer will help us to know more how the purchase from the customer is going.
-CREATE TABLE customers (
-    customer_id INT PRIMARY KEY,
-    customer_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100),
-    region VARCHAR(50),        
-    signup_date DATE
-);
 
+
+<img width="357" height="97" alt="customer table shema" src="https://github.com/user-attachments/assets/793ed079-27c6-4340-a187-7c01bef4cba5" />
 
 
  this is the inserting part  where it give us more details on the customer 
 
 
-INSERT INTO customers VALUES
-(1001, 'Jean', 'jean@email.com', 'Kigali', '2023-01-15'),
-(1002, 'Amina', 'amina@email.com', 'Nairobi', '2023-02-20'),
-(1003, 'belinda', 'belinda@email.com', 'Accra', '2023-03-05'),
-(1004, 'Lina', 'lina@email.com', 'Dar es Salaam', '2023-04-12'),
-(1005, 'Karangwa', 'karangwa@email.com', 'Kampala', '2023-05-18'),  
-(1006, 'Angel', 'angel@email.com', 'Kigali', '2023-06-22'); 
+<img width="376" height="196" alt="customer data insert" src="https://github.com/user-attachments/assets/d522167c-9356-4b72-859c-65a87d89388f" />
+
 
 
 sales transaction table 
@@ -158,26 +123,13 @@ this foreign key will help us to keep truck to the  customers of the book and th
 
 here below we have the schema of the table well as the  inserted data inside the sale transaction table.
 
-CREATE TABLE sales_transactions (
-    transaction_id INT PRIMARY KEY,
-    customer_id INT NOT NULL REFERENCES customers(customer_id),  
-    book_id INT NOT NULL REFERENCES books(book_id),              
-    transaction_date DATE NOT NULL,
-    quantity INT NOT NULL,
-    amount DECIMAL(10,2) NOT NULL
-);
--- Sales Transactions (Jan–Mar 2024)
-INSERT INTO sales_transactions VALUES
-(1, 1001, 101, '2024-01-10', 2, 49.98),
-(2, 1002, 102, '2024-01-15', 1, 22.50),
-(3, 1001, 103, '2024-02-05', 3, 56.25),
-(4, 1003, 101, '2024-02-20', 1, 24.99),
-(5, 1004, 102, '2024-03-01', 2, 45.00),
-(6, 1002, 104, '2024-03-10', 1, 21.00),
-(7, 1006, 105, '2024-03-15', 1, 23.50);
+
+<img width="350" height="99" alt="sales transaction table schema" src="https://github.com/user-attachments/assets/44a908fc-2fe6-42e6-80b8-5bbf40e273a8" />
 
 
+this is for the inserting the data
 
+<img width="326" height="208" alt="SALES TABLE DATA INSERT" src="https://github.com/user-attachments/assets/aac8b4e8-bb20-4783-a3dd-08e53c4ded98" />
 
 
 
@@ -192,61 +144,33 @@ this join help us also to join only the kind of the information we only need whi
 
  INNER JOIN:
 
- Show only completed sales with valid customer + book data
-
-
-SELECT 
-    st.transaction_id,
-    c.customer_name,
-    c.region AS customer_region,
-    b.book_title,
-    a.author_name,
-    st.transaction_date,
-    st.amount
-FROM sales_transactions st
-INNER JOIN customers c ON st.customer_id = c.customer_id
-INNER JOIN books b ON st.book_id = b.book_id
-INNER JOIN authors a ON b.author_id = a.author_id
-ORDER BY st.transaction_date;
+ Show only completed sales with valid customer  and book data
+ 
+<img width="640" height="310" alt="INNER JOIN" src="https://github.com/user-attachments/assets/7c8a95b4-577e-4305-b9ac-3087ccfff243" />
 
 
 This query shows only verified sales where both customer and book records exist. It excludes orphaned transactions (e.g., deleted customers/books), making it ideal for accurate revenue reporting and commission calculations for authors. Management can trust these results for financial statements.
 
 
 
--- LEFT JOIN: Find customers with zero transactions (potential churn risk)
-SELECT 
-    c.customer_id,
-    c.customer_name,
-    c.region,
-    c.signup_date,
-    st.transaction_id  
-FROM customers c
-LEFT JOIN sales_transactions st ON c.customer_id = st.customer_id
-WHERE st.transaction_id IS NULL  
-ORDER BY c.signup_date DESC;
+LEFT JOIN:
 
+Find customers with zero transactions (potential churn risk)
+
+<img width="377" height="162" alt="LEFT JOIN" src="https://github.com/user-attachments/assets/acb0fa1d-30d2-48c7-ad13-3204869569c0" />
 
 
 This reveals inactive customers like Tariq (customer_id 1005) who signed up but never bought anything. Marketing can target them with welcome discounts or personalized book recommendations to convert them into paying customers, reducing customer acquisition waste.
 
 
 
- RIGHT JOIN: Find books that have never been sold (marketing opportunity)
+ RIGHT JOIN: 
+ 
+ Find books that have never been sold  and for the marketing opportunity
+ 
 
-SELECT 
-    b.book_id,
-    b.book_title,
-    a.author_name,
-    b.category,
-    b.publication_date,
-    st.transaction_id  
-FROM sales_transactions st
-RIGHT JOIN books b ON st.book_id = b.book_id
-LEFT JOIN authors a ON b.author_id = a.author_id  
-WHERE st.transaction_id IS NULL  
-ORDER BY b.publication_date DESC;
-   
+<img width="374" height="169" alt="RIGHT JOIN" src="https://github.com/user-attachments/assets/094fe0e7-40f9-445b-b024-aa0375f48efd" />
+
 
 Book ID 106 ("New Author Book") has zero sales despite being published in January 2024. This signals a need for targeted promotion 
 perhaps the author needs visibility support or the book requires better tagging on the website to reach its audience.
@@ -257,21 +181,7 @@ perhaps the author needs visibility support or the book requires better tagging 
 
  Show ALL customers and ALL transactions 
 
-
-SELECT 
-    COALESCE(c.customer_id, -1) AS customer_id, 
-    c.customer_name,
-    COALESCE(b.book_title, 'NO BOOK') AS book_title,
-    COALESCE(st.amount, 0) AS amount,
-    CASE 
-        WHEN c.customer_id IS NULL THEN 'Orphaned transaction (deleted customer)'
-        WHEN st.transaction_id IS NULL THEN 'Customer with no purchases'
-        ELSE 'Valid transaction'
-    END AS record_status
-FROM customers c
-FULL OUTER JOIN sales_transactions st ON c.customer_id = st.customer_id
-LEFT JOIN books b ON st.book_id = b.book_id
-ORDER BY record_status, customer_id;
+<img width="379" height="233" alt="FULL_JOIN" src="https://github.com/user-attachments/assets/1e1cca05-2508-4181-aafa-810cc0d29678" />
 
 
 This comprehensive view shows both inactive customers  AND orphaned transactions (if any customer records were accidentally deleted). It helps data engineers identify referential integrity issues and helps marketing prioritize re-engagement campaigns for real customers vs. fixing data quality problems.
@@ -279,24 +189,14 @@ This comprehensive view shows both inactive customers  AND orphaned transactions
 
  SELF JOIN:
 
- Compare customers in the same region (e.g., Kigali)
+ Compare customers in the same region 
 
-
-SELECT 
-    c1.customer_name AS customer_1,
-    c2.customer_name AS customer_2,
-    c1.region,
-    c1.signup_date AS signup_1,
-    c2.signup_date AS signup_2
-FROM customers c1
-INNER JOIN customers c2 
-    ON c1.region = c2.region          
-    AND c1.customer_id < c2.customer_id  
-WHERE c1.region = 'Kigali'
-ORDER BY c1.signup_date;
+<img width="344" height="185" alt="SELF_JOIN" src="https://github.com/user-attachments/assets/8a4e7530-92ab-4ee8-988b-c3d7efaa5759" />
 
 
 this will help us to analyze if we have the same people in the same region.
+
+
 
 
 STEP 5: PART B: WINDOW FUNCTIONS IMPLEMENTATION
@@ -306,53 +206,25 @@ here in this part we used the window function like rank(), sum() over() and othe
  
 
 
-
- RANK() 
+ * RANK() 
 
 for searching and ranking  the Top 5 Books Per Region
 
+Identify top 5 books by revenue in each customer region
+   
+Top 5 books per region.
 
- RANK(): Identify top 5 books by revenue in each customer region
- RANK(): Top 5 books per region (CORRECTED - window function in CTE, filter in outer query)
-
-WITH sales AS (
-  SELECT c.region, b.book_title, SUM(st.amount) rev
-  FROM sales_transactions st
-  JOIN customers c ON st.customer_id=c.customer_id
-  JOIN books b ON st.book_id=b.book_id
-  GROUP BY c.region, b.book_title
-),
-ranked AS (
-  SELECT *, RANK() OVER (PARTITION BY region ORDER BY rev DESC) rnk
-  FROM sales
-)
-SELECT * FROM ranked WHERE rnk<=5 ORDER BY region, rnk;
+  
+<img width="521" height="297" alt="WF_RANK()" src="https://github.com/user-attachments/assets/f094e8ab-18c6-44ae-968a-e74d2568e8be" />
 
 
+* DENSE_RANK() 
 
- DENSE_RANK() vs RANK() 
+it Handle ties gracefully 
 
 
-DENSE_RANK(): Handle ties gracefully 
+   <img width="357" height="225" alt="WF_DENSE RANK()" src="https://github.com/user-attachments/assets/0bd11669-e08b-455b-858d-359719ca428d" />
 
-WITH customer_spending AS (
-    SELECT 
-        c.customer_id,
-        c.customer_name,
-        c.region,
-        SUM(st.amount) AS total_spent
-    FROM customers c
-    LEFT JOIN sales_transactions st ON c.customer_id = st.customer_id
-    GROUP BY c.customer_id, c.customer_name, c.region
-)
-SELECT 
-    customer_name,
-    region,
-    total_spent,
-    RANK() OVER (ORDER BY total_spent DESC) AS rank_with_gaps,      
-    DENSE_RANK() OVER (ORDER BY total_spent DESC) AS dense_rank_no_gaps  
-FROM customer_spending
-ORDER BY total_spent DESC;
 
 
 
@@ -360,19 +232,14 @@ If two customers tie for 2nd place, RANK() gives them both rank 2 but skips to r
 
 
 
- SUM() OVER()
+* SUM() OVER()
 
 for  Running totals, moving averages for sales forecasting
 
 
 
-SELECT 
-  DATE_TRUNC('month', transaction_date::timestamp)::date AS month,
-  SUM(amount) AS monthly_sales,
-  SUM(SUM(amount)) OVER (ORDER BY DATE_TRUNC('month', transaction_date::timestamp)) AS running_total
-FROM sales_transactions
-GROUP BY DATE_TRUNC('month', transaction_date::timestamp)
-ORDER BY month;
+<img width="656" height="195" alt="WF_SUM() OVER()" src="https://github.com/user-attachments/assets/62fc0d05-d1f4-4982-ad43-3cccfa6dd439" />
+
 
 
 Business interpretation:
@@ -380,45 +247,28 @@ The running total shows cumulative revenue growth: $72.48 in January, $153.72 by
 
 
 
- AVG() OVER() 
+*  AVG() OVER() 
 
  this is for 3-month moving average using RANGE frame
 
 
+<img width="920" height="185" alt="WF AVG() _OVER()" src="https://github.com/user-attachments/assets/21f2ffd6-921a-4205-b7a9-9901d7276914" />
 
-SELECT 
-  DATE_TRUNC('month', transaction_date::timestamp)::date AS month,
-  SUM(amount) AS monthly_sales,
-  ROUND(AVG(SUM(amount)) OVER (ORDER BY DATE_TRUNC('month', transaction_date::timestamp) ROWS BETWEEN 2 PRECEDING AND CURRENT ROW), 2) AS moving_avg
-FROM sales_transactions
-GROUP BY DATE_TRUNC('month', transaction_date::timestamp)
-ORDER BY month;
 
  Business interpretation:
+ 
  understanding  upward sales trend. This helps inventory planning — if the moving average rises consistently, the company should increase stock orders for upcoming months to avoid stockouts of popular titles.
 
 
 
 
-  LAG() 
+  * LAG() 
 
 
  LAG(): Compare current month revenue to previous month
 
-WITH monthly AS (
-  SELECT 
-    DATE_TRUNC('month', transaction_date::timestamp)::date AS month,
-    SUM(amount) AS sales
-  FROM sales_transactions
-  GROUP BY DATE_TRUNC('month', transaction_date::timestamp)
-)
-SELECT 
-  month,
-  sales,
-  LAG(sales) OVER (ORDER BY month) AS prev_month,
-  ROUND((sales - LAG(sales) OVER (ORDER BY month)) * 100.0 / NULLIF(LAG(sales) OVER (ORDER BY month),0), 2) AS growth_pct
-FROM monthly
-ORDER BY month;
+
+<img width="398" height="181" alt="WF_LAG" src="https://github.com/user-attachments/assets/677798dc-fc75-4b1c-9efb-733708efa91b" />
 
 
  Business interpretation:
@@ -426,28 +276,12 @@ ORDER BY month;
 
 
 
-LEAD() 
+* LEAD() 
 
 
+  it Peek at next month's revenue for forecasting validation and to Forecast Next Month's Revenue
 
- LEAD(): Peek at next month's revenue for forecasting validation and to Forecast Next Month's Revenue
-
-
-WITH monthly_sales AS (
-    SELECT 
-        DATE_TRUNC('month', transaction_date) AS sale_month,
-        SUM(amount) AS monthly_revenue
-    FROM sales_transactions
-    GROUP BY DATE_TRUNC('month', transaction_date)
-)
-SELECT 
-    sale_month,
-    monthly_revenue,
-    LEAD(monthly_revenue) OVER (ORDER BY sale_month) AS next_month_revenue,
-    LEAD(sale_month) OVER (ORDER BY sale_month) AS next_month
-FROM monthly_sales
-ORDER BY sale_month;
-
+<img width="358" height="167" alt="WF_LEAD" src="https://github.com/user-attachments/assets/b34554fc-c01a-4919-bcfc-21067a557caf" />
 
 
 Business interpretation:
@@ -457,19 +291,13 @@ LEAD() lets analysts compare actual revenue to forecasts. If March's actual reve
 
 
 
- NTILE():
+* NTILE():
 
  Segment customers into 4 spending quartiles ,VIP to Low Value
+ 
 
+<img width="302" height="153" alt="WF_NTLE" src="https://github.com/user-attachments/assets/1ce0f2da-6d6c-4eac-829d-76c7b5d7353e" />
 
-SELECT 
-  customer_name,
-  SUM(amount) AS total_spent,
-  NTILE(4) OVER (ORDER BY SUM(amount) DESC) AS quartile
-FROM customers c
-LEFT JOIN sales_transactions st ON c.customer_id=st.customer_id
-GROUP BY c.customer_id, customer_name
-ORDER BY total_spent DESC;
 
 
  Business interpretation:
@@ -483,25 +311,9 @@ CUME_DIST()
   for  Cumulative Distribution of Spending and this will help us to know What percentile does each customer fall into?
  here is the query used:
 
-WITH customer_totals AS (
-    SELECT 
-        c.customer_name,
-        COALESCE(SUM(st.amount), 0.0) AS total_spent
-    FROM customers c
-    LEFT JOIN sales_transactions st ON c.customer_id = st.customer_id
-    GROUP BY c.customer_id, c.customer_name
-)
-SELECT 
-    customer_name,
-    total_spent,
-    ROUND(
-        (CUME_DIST() OVER (ORDER BY total_spent) * 100)::numeric, 
-        2
-    ) AS spending_percentile
-FROM customer_totals
-ORDER BY total_spent DESC;
+<img width="368" height="229" alt="cume_dist" src="https://github.com/user-attachments/assets/76b172d3-c1ab-4895-a08f-f5c5c26859bf" />
 
-
+    
  Business interpretation:
  Marketing can target customers between 40th–60th percentile with "next purchase" incentives — they're active but not yet loyal, representing the biggest opportunity for revenue growth through modest engagement efforts.
 
@@ -524,31 +336,24 @@ it happened due to how the customers didn't have the high rate of purchasing the
 they must increase the techniques for the book publishing
 
 
-
-
-
-
-
-
-
-
-
-References
-PL/SQL Window Functions Assignment
-Project Overview
-This project focuses on practicing and applying Oracle SQL Window Functions to solve real-world database problems.
+to conclude This project focuses on practicing and applying Oracle SQL Window Functions to solve real-world database problems.
 The assignment demonstrates how functions like ROW_NUMBER, RANK, and DENSE_RANK can be used to analyze data in business scenarios.
 Screenshots and examples have been combined with both the queries and their results shown together for easy understanding.
 
 
 
-All sources were properly cited. Implementations and analysis represent original work.
- No AIgenerated content was copied without attribution or adaptation
 
 References
- INSY 8311: Database Development with PL/SQL - Lecture Notes week1 AUCA.
-Window Functions Lecture Slides (Week 2).
-W3Schools SQL Window Functions Reference.
+
+* PL/SQL Window Functions Assignment
+  
+* Project Overview
+  
+* INSY 8311: Database Development with PL/SQL - Lecture Notes week1 AUCA.
+  
+*Window Functions Lecture Slides (Week 2).
+
+*W3Schools SQL Window Functions Reference.
 
 
 
