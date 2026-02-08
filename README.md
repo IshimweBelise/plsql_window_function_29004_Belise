@@ -13,7 +13,11 @@ lecture: Mr Eric Maniraguha
 group D
 
 
+
+
 STEP 1. Business Problem Definition
+
+
 
 Business Context
 
@@ -27,7 +31,11 @@ Department: Sales Analytics
 BUSSINESS CONTEXT explanations: a company of an  e-commerce websites selling and publishing books  across the region and promoting young authors.
 
 
+
+
 Data challenge: 
+
+
 
 the company management want to analyze and understand  author publishing behaviors , identify top published and best selling books and track sales performance over time.
 
@@ -36,7 +44,11 @@ Expected outcome:
 due to product per region per region, customer growth, and the growth trends to guide the marketing and publishing decisions.
 
 
+
+
  step 2: Success Criteria 
+
+
 
 1. RANK():Top 5 books per region
    
@@ -50,7 +62,11 @@ due to product per region per region, customer growth, and the growth trends to 
 5.AVG() OVER():Three month moving average of book sales in our website 
 
 
+
+
 STEP 3: DATABASE SCHEMA DESIGN
+
+
 
 Entity-Relationship Diagram
 
@@ -202,6 +218,8 @@ this will help us to analyze if we have the same people in the same region.
 STEP 5: PART B: WINDOW FUNCTIONS IMPLEMENTATION
 
 
+
+
 here in this part we used the window function like rank(), sum() over() and other we will see below and their codes this is to descripe or to sum upp the prices and to rank according to the information needed in order to make a decision and analysis of every thing needed to make decisions for the book store website.
  
 
@@ -234,6 +252,7 @@ If two customers tie for 2nd place, RANK() gives them both rank 2 but skips to r
 
 * SUM() OVER()
 
+
 for  Running totals, moving averages for sales forecasting
 
 
@@ -248,6 +267,7 @@ The running total shows cumulative revenue growth: $72.48 in January, $153.72 by
 
 
 *  AVG() OVER() 
+
 
  this is for 3-month moving average using RANGE frame
 
@@ -265,6 +285,7 @@ The running total shows cumulative revenue growth: $72.48 in January, $153.72 by
   * LAG() 
 
 
+
  LAG(): Compare current month revenue to previous month
 
 
@@ -272,6 +293,7 @@ The running total shows cumulative revenue growth: $72.48 in January, $153.72 by
 
 
  Business interpretation:
+ 
  Though growth remains positive, this is to investigate if the customer purchasing is going at the low and slow lever or the high level.
 
 
@@ -285,6 +307,7 @@ The running total shows cumulative revenue growth: $72.48 in January, $153.72 by
 
 
 Business interpretation:
+
 LEAD() lets analysts compare actual revenue to forecasts. If March's actual revenue ($89.49) significantly exceeded February's forecasted value, the forecasting model needs recalibration , perhaps seasonal factors (e.g., school holidays) weren't accounted for in the prediction algorithm.
 
 
@@ -301,6 +324,7 @@ LEAD() lets analysts compare actual revenue to forecasts. If March's actual reve
 
 
  Business interpretation:
+ 
 this will help us to classify the customers according to how they purchase and make them in categories and this will help them in providing discounts, and
 analyzing how they will put the measurement to attract more customers who have low purchasing history.
 
@@ -308,13 +332,16 @@ analyzing how they will put the measurement to attract more customers who have l
 
 CUME_DIST()
 
+
   for  Cumulative Distribution of Spending and this will help us to know What percentile does each customer fall into?
  here is the query used:
+ 
 
 <img width="368" height="229" alt="cume_dist" src="https://github.com/user-attachments/assets/76b172d3-c1ab-4895-a08f-f5c5c26859bf" />
 
     
  Business interpretation:
+ 
  Marketing can target customers between 40th–60th percentile with "next purchase" incentives — they're active but not yet loyal, representing the biggest opportunity for revenue growth through modest engagement efforts.
 
 
@@ -322,6 +349,8 @@ CUME_DIST()
 
 
 step 6: result analysis
+
+
 
 . Descriptive — What happened?
  in the region of Rwanda  they wasn't the high rate of publishing the books yet the company took the analysis and analyzed them and took some measure 
@@ -344,6 +373,8 @@ Screenshots and examples have been combined with both the queries and their resu
 
 
 References
+
+
 
 * PL/SQL Window Functions Assignment
   
