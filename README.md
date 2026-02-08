@@ -1,9 +1,15 @@
 PL/SQL Window Functions Assignment I
+
 book store Analysis 
+
 Student Name: [ishimwe belise]
+
 Student ID: [29004]
+
 Course: Database Development with PL/SQL
+
 lecture: Mr Eric Maniraguha
+
 group D
 
 
@@ -11,26 +17,36 @@ STEP 1. Business Problem Definition
 
 Business Context
 
+
 Company: ish.bel online bookstore 
+
 Industry: book publishing and selling
+
 Department: Sales Analytics
 
 BUSSINESS CONTEXT explanations: a company of an  e-commerce websites selling and publishing books  across the region and promoting young authors.
 
 
 Data challenge: 
+
 the company management want to analyze and understand  author publishing behaviors , identify top published and best selling books and track sales performance over time.
 
 Expected outcome:  
+
 due to product per region per region, customer growth, and the growth trends to guide the marketing and publishing decisions.
 
 
  step 2: Success Criteria 
 
 1. RANK():Top 5 books per region
+   
 2.SUM() :Running monthly sales totals according to the books that is sold.
+
 3.LAG() / LEAD():Month by month growth in book sales in our website
-4. NTILE(4):Costumer quartile groups or segmentation according to how they  spend 
+
+4. NTILE(4):Costumer quartile groups or segmentation according to how they  spend
+
+   
 5.AVG() OVER():Three month moving average of book sales in our website 
 
 
